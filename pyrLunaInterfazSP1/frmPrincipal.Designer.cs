@@ -35,14 +35,14 @@
             txtUsuario = new TextBox();
             btnAceptar = new Button();
             btnCancelar = new Button();
-            cbModulo = new ComboBox();
+            lstModulo = new ComboBox();
             SuspendLayout();
             // 
             // lblUsuario
             // 
             lblUsuario.AutoSize = true;
             lblUsuario.Font = new Font("Segoe UI", 14F);
-            lblUsuario.Location = new Point(26, 15);
+            lblUsuario.Location = new Point(19, 20);
             lblUsuario.Name = "lblUsuario";
             lblUsuario.Size = new Size(77, 25);
             lblUsuario.TabIndex = 0;
@@ -52,7 +52,7 @@
             // 
             lblContraseña.AutoSize = true;
             lblContraseña.Font = new Font("Segoe UI", 14F);
-            lblContraseña.Location = new Point(26, 65);
+            lblContraseña.Location = new Point(20, 70);
             lblContraseña.Name = "lblContraseña";
             lblContraseña.Size = new Size(108, 25);
             lblContraseña.TabIndex = 1;
@@ -62,78 +62,85 @@
             // 
             lblModulo.AutoSize = true;
             lblModulo.Font = new Font("Segoe UI", 14F);
-            lblModulo.Location = new Point(26, 115);
+            lblModulo.Location = new Point(19, 124);
             lblModulo.Name = "lblModulo";
             lblModulo.Size = new Size(78, 25);
             lblModulo.TabIndex = 2;
-            lblModulo.Text = "Modulo";
+            lblModulo.Text = "Módulo";
             // 
             // txtContraseña
             // 
+            txtContraseña.Enabled = false;
             txtContraseña.Font = new Font("Segoe UI", 14F);
-            txtContraseña.Location = new Point(173, 62);
+            txtContraseña.Location = new Point(167, 63);
             txtContraseña.MaxLength = 10;
             txtContraseña.Name = "txtContraseña";
             txtContraseña.PasswordChar = '#';
             txtContraseña.Size = new Size(241, 32);
-            txtContraseña.TabIndex = 3;
+            txtContraseña.TabIndex = 2;
+            txtContraseña.TextChanged += txtContraseña_TextChanged;
             // 
             // txtUsuario
             // 
             txtUsuario.Font = new Font("Segoe UI", 14F);
             txtUsuario.ForeColor = Color.FromArgb(128, 128, 255);
-            txtUsuario.Location = new Point(173, 12);
+            txtUsuario.Location = new Point(167, 13);
             txtUsuario.MaxLength = 10;
             txtUsuario.Name = "txtUsuario";
             txtUsuario.Size = new Size(241, 32);
-            txtUsuario.TabIndex = 4;
+            txtUsuario.TabIndex = 1;
+            txtUsuario.TextChanged += txtUsuario_TextChanged;
             // 
             // btnAceptar
             // 
+            btnAceptar.Enabled = false;
             btnAceptar.Font = new Font("Segoe UI", 14F);
-            btnAceptar.Location = new Point(456, 12);
+            btnAceptar.Location = new Point(450, 13);
             btnAceptar.Name = "btnAceptar";
             btnAceptar.Size = new Size(100, 32);
-            btnAceptar.TabIndex = 5;
+            btnAceptar.TabIndex = 4;
             btnAceptar.Text = "Aceptar";
             btnAceptar.UseVisualStyleBackColor = true;
+            btnAceptar.Click += btnAceptar_Click;
             // 
             // btnCancelar
             // 
             btnCancelar.Font = new Font("Segoe UI", 14F);
-            btnCancelar.Location = new Point(456, 62);
+            btnCancelar.Location = new Point(450, 63);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(100, 32);
-            btnCancelar.TabIndex = 6;
+            btnCancelar.TabIndex = 5;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
             btnCancelar.Click += btnCancelar_Click;
             // 
-            // cbModulo
+            // lstModulo
             // 
-            cbModulo.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbModulo.FormattingEnabled = true;
-            cbModulo.IntegralHeight = false;
-            cbModulo.Items.AddRange(new object[] { "ADM", "SIST", "COM", "VTA" });
-            cbModulo.Location = new Point(173, 115);
-            cbModulo.Name = "cbModulo";
-            cbModulo.Size = new Size(241, 23);
-            cbModulo.TabIndex = 8;
-            cbModulo.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            lstModulo.DropDownStyle = ComboBoxStyle.DropDownList;
+            lstModulo.Enabled = false;
+            lstModulo.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lstModulo.FormattingEnabled = true;
+            lstModulo.IntegralHeight = false;
+            lstModulo.Items.AddRange(new object[] { "ADM", "SIST", "COM", "VTA" });
+            lstModulo.Location = new Point(167, 116);
+            lstModulo.Name = "lstModulo";
+            lstModulo.Size = new Size(241, 33);
+            lstModulo.TabIndex = 3;
+            lstModulo.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // frmPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(568, 153);
-            Controls.Add(cbModulo);
-            Controls.Add(btnCancelar);
-            Controls.Add(btnAceptar);
-            Controls.Add(txtUsuario);
-            Controls.Add(txtContraseña);
+            ClientSize = new Size(568, 163);
             Controls.Add(lblModulo);
             Controls.Add(lblContraseña);
             Controls.Add(lblUsuario);
+            Controls.Add(txtUsuario);
+            Controls.Add(txtContraseña);
+            Controls.Add(lstModulo);
+            Controls.Add(btnAceptar);
+            Controls.Add(btnCancelar);
             Name = "frmPrincipal";
             Text = "frmPrincipal";
             ResumeLayout(false);
@@ -145,10 +152,11 @@
         private Label lblUsuario;
         private Label lblContraseña;
         private Label lblModulo;
-        private TextBox txtContraseña;
         private TextBox txtUsuario;
+        private TextBox txtContraseña;
+        private ComboBox lstModulo;
         private Button btnAceptar;
         private Button btnCancelar;
-        private ComboBox cbModulo;
+
     }
 }
